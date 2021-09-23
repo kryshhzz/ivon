@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="theme-color" content="#303338">
+    
+    <title></title>
+    
+    <style type="text/css" media="all">
+       :root {
+         --t1 : rgba(255,255,255,87%);
+         --t2 : rgba(255,255,255,60%);
+         --t3 : rgba(255,255,255,38%);
+         
+         --dml : #303338;
+         --dm2l: rgb(72,75,82);
+         --dm :rgb(27,29,33);
+         --base : #80d755;
+       }
+      * {
+        box-sizing: border-box;
+        margin : 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      img {
+        width : 100%;
+      }
+      a {
+        text-decoration: none;
+      }
+      body {
+        background : var(--dm);
+      }
+    </style>
+    
+  </head>
+  <body>
+    
+    <div id="wrap">
+      {% block content %}
+      {% endblock %}
+    </div>
+    
+    
+  </body>
+</html>

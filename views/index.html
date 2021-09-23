@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <style type="text/css" media="all">
+    
+    #bowl {
+      padding : 1rem 0 0 0 ;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+    #ss-bowl {
+      background : var(--dml);
+      height : 50vh;
+      margin : 1rem auto;
+      max-width: 400px;
+      width : 90%;
+      border-radius: .75rem;
+      padding : .75rem;
+      overflow-y: auto;
+    }
+    #input-bowl {
+      background : var(--dml);
+      padding : 1rem;
+      width : 100%;
+      height : 30vh;
+      position : fixed;
+      bottom : 0;
+      left : 0;
+    }
+    #msg-input {
+      width : 100%;
+      padding : .75rem 1rem;
+      border-radius: 1rem;
+      background: var(--dm2l);
+      outline : none;
+      border : none;
+      color : var(--t1);
+    }
+    
+    #button-holder {
+      width: 100%;
+      padding : 1rem;
+      display: flex;
+    }
+    .send {
+      border : none;
+      color : var(--dm);
+      padding : .75rem 1rem;
+      border-radius: .75rem;
+      outline : none;
+      background : var(--base);
+      width : 100%;
+      margin : 0 .35rem;
+      font-weight: bold;
+    }
+    .msg {
+      width : 100%;
+      margin : .15rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .in .actmsg {
+      grid-column: 1/2;
+      font-family: Sans-Serif;
+      background : var(--dm2l);
+      padding : .5rem 1rem;
+      border-radius: 0 1rem 1rem .5rem;
+      text-align: left;
+      color : var(--t1);
+      font-size: .9rem;
+    }
+    .out .actmsg {
+      grid-column: 2/3;
+      font-family: Sans-Serif;
+      background : var(--base);
+      padding : .5rem 1rem;
+      border-radius: 1rem .5rem 0 1rem;
+      text-align: left;
+      color : var(--dm);
+      font-size: .9rem;
+    }
+    #clearbtn {
+      width : 100%;
+      border : none;
+      outline : none;
+      background :#d1171e;
+      border-radius: 1rem;
+      color : var(--t1);
+      font-weight: bold;
+      padding : .75rem ;
+    }
+    
+  </style>
+  <div id="bowl">
+    
+    <div id="ss-bowl">
+      
+    </div>
+    
+    <div id="input-bowl">
+      <input type="text" name="msg-input" id="msg-input" value="" placeholder="Message"/>
+      <div id="button-holder">
+        <button onclick="Adder('send')" class="send">Send</button>
+        <button onclick="Adder('recv')" class="send">Recieve</button>
+      </div>
+      
+      <button id="clearbtn" onclick="Clear()">Clear</button>
+      
+    </div>
+    
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    
+    var msginput = document.getElementById("msg-input")
+    var ssb = document.getElementById("ss-bowl")
+    
+    function Adder(type){
+
+      var str = ""
+      
+      if ( type == 'recv'){
+        str = `<div class="msg in">
+        <div class="actmsg">`+msginput.value+`</div>
+      </div>`
+      }else{
+        str = `<div class="msg out">
+        <div class="actmsg">`+msginput.value+`</div>
+      </div>`
+      }
+      
+      ssb.innerHTML += str
+      msginput.value = ""
+    }
+    
+    function Clear(){
+      ssb.innerHTML = ""
+    }
+    
+    
+    
+  </script>
+
+{% endblock %}
